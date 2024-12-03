@@ -81,7 +81,7 @@ Antes de executar o projeto, certifique-se de ter instalado:
 4. Clonar este repositório:  
 
    ```bash
-   git clone https://github.com/seu-repositorio/cinema-api-tests.git
+   git clone https://github.com/Vicenzo-Az/Automacao-de-Testes-para-API-de-Cinema.git
    cd cinema-api-tests
    ```
 
