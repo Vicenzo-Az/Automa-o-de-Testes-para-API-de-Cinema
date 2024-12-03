@@ -8,15 +8,17 @@ Bem-vindo ao repositório do projeto de automação de testes para a API de Cine
 ## **📋 Sumário**
 
 1. [Apresentação Pessoal](#-apresentação-pessoal)  
-2. [Objetivo do Projeto](#-objetivo-do-projeto)  
-3. [Estrutura do Projeto](#-estrutura-do-projeto)  
-4. [Pré-requisitos](#-pré-requisitos)  
-5. [Como Configurar e Executar](#-como-configurar-e-executar)  
-6. [Cenários e Cobertura de Testes](#-cenários-e-cobertura-de-testes)  
-7. [Mapa Mental](#-mapa-mental)  
-8. [Issues Encontradas](#-issues-encontradas)  
-9. [Plano de Melhoria](#-plano-de-melhoria)  
-10. [Contribuições](#-contribuições)  
+2. [Objetivo do Projeto](#-objetivo-do-projeto)
+3. [Mapa Mental](#️-mapa-mental)  
+4. [DoR e DoD](#-definition-of-ready-dor-e-definition-of-done-dod)
+5. [Acceptance Criteria](#-acceptance-criteria-critérios-de-aceitação)
+6. [Estrutura do Projeto](#-estrutura-do-projeto)  
+7. [Pré-requisitos](#️-pré-requisitos)  
+8. [Como Configurar e Executar](#-como-configurar-e-executar)  
+9. [Cenários e Cobertura de Testes](#-cenários-e-cobertura-de-testes)  
+10. [Issues Encontradas](#-issues-encontradas)  
+11. [Plano de Melhoria](#-plano-de-melhoria)  
+12. [Contribuições](#-contribuições)  
 
 ---
 
@@ -42,6 +44,89 @@ O objetivo principal deste projeto é automatizar os testes funcionais da API de
 - Código limpo e reutilizável.  
 - Testes independentes e de fácil manutenção.  
 - Documentação detalhada (README).  
+
+---
+
+## **🗺️ Mapa Mental**
+
+Abaixo está uma visão geral das User Stories e cenários cobertos no projeto.  
+
+![Mapa Mental](IMAGES/nestjs-cinema.png)  
+
+---
+
+## **🔍 Definition of Ready (DoR) e Definition of Done (DoD)**
+
+### **DoR (Definition of Ready)**
+
+O **DoR** define os critérios que uma User Story ou tarefa deve atender para ser considerada "pronta" para iniciar o desenvolvimento. Isso significa que todos os requisitos e informações necessárias estão disponíveis para que a equipe comece a trabalhar.
+
+#### Para a **User Story 1** (Cadastro de Filmes):
+1. A história deve ter uma descrição clara do que precisa ser feito.
+2. A API para cadastro de filmes já deve estar disponível ou simulada.
+3. Deve ser fornecida a estrutura do objeto de dados esperado para o filme.
+4. Definir quais são os parâmetros obrigatórios para a criação de um filme.
+5. Os cenários de erro (como campos obrigatórios não preenchidos) devem estar definidos.
+6. Os testes de API devem estar configurados para validar os endpoints.
+7. A aceitação de critérios de sucesso, como status de resposta 201 para criação de filme, deve ser clara.
+8. As dependências externas (se houver) devem estar configuradas ou mockadas.
+9. Critérios de segurança (autenticação/autorização) devem ser definidos, se necessário.
+
+#### Para a **User Story 2** (Reserva de Filmes):
+1. A história deve ter uma descrição clara de como a reserva será feita.
+2. A API para reservas de filmes deve estar disponível ou simulada.
+3. Definir os parâmetros necessários para criar uma reserva.
+4. Cenários de erro devem estar claros (e.g., tentativa de reserva para uma data inválida).
+5. Critérios de sucesso, como status de resposta 200 para reserva realizada, devem ser especificados.
+6. A equipe de desenvolvimento deve fornecer detalhes sobre a lógica de regras de negócios (por exemplo, capacidade máxima de reservas).
+7. Configuração de testes de API para as rotas de reservas.
+8. Casos de uso envolvendo cancelamento ou consulta de reservas devem estar descritos, caso aplicáveis.
+
+### **DoD (Definition of Done)**
+
+O **DoD** define os critérios que precisam ser atendidos para que uma User Story ou tarefa seja considerada "feita". Ela garante que o trabalho foi completado com qualidade e sem pendências.
+
+#### Para a **User Story 1** (Cadastro de Filmes):
+1. A funcionalidade de cadastro de filmes deve estar implementada.
+2. Todos os endpoints envolvidos no processo de cadastro de filme foram testados.
+3. O retorno da API deve ser validado, incluindo status codes e o conteúdo da resposta.
+4. A documentação da API e da funcionalidade deve estar atualizada.
+5. Todos os cenários de teste definidos no planejamento de testes devem ser executados e validados.
+6. O código deve estar revisado e atender aos critérios de qualidade e boas práticas (incluindo testes automatizados).
+7. A segurança, como autenticação, deve estar implementada se for necessária.
+8. A funcionalidade deve ser validada em diferentes ambientes (e.g., dev, staging).
+9. O código deve ser mesclado na branch principal com as devidas revisões de código (pull request aprovado).
+10. Os bugs identificados durante a execução dos testes devem estar documentados como "issues" e resolvidos.
+
+#### Para a **User Story 2** (Reserva de Filmes):
+1. A funcionalidade de reservas deve estar completamente implementada.
+2. Todos os endpoints envolvidos no processo de reserva foram testados.
+3. O retorno da API de reserva deve ser validado com testes automatizados.
+4. O sistema de reservas deve respeitar as regras de negócio (ex: capacidade limitada).
+5. O código deve estar revisado e atender aos critérios de qualidade, incluindo cobertura de testes.
+6. A funcionalidade deve ser validada no ambiente de testes, garantindo que as interações entre filmes e reservas funcionem corretamente.
+7. Todos os casos de erro e exceção devem ser tratados adequadamente.
+8. A documentação da API de reserva e a integração com o sistema de filmes deve estar atualizada.
+9. Os cenários de cancelamento de reservas e consulta também devem ser testados e funcionando corretamente.
+10. O código deve ser mesclado na branch principal após a aprovação no pull request.
+
+---
+
+## **✅ Acceptance Criteria (Critérios de Aceitação)**
+
+### **User Story 1: Cadastro de Filmes**
+1. **Dado** que estou autenticado na API, **quando** eu enviar uma requisição POST para criar um filme, **então** a resposta deve retornar um status 201 (Created).
+2. **Dado** que estou enviando um filme com todos os dados obrigatórios válidos, **então** o filme será criado com sucesso.
+3. **Dado** que estou tentando criar um filme com um título já existente, **então** a resposta deve retornar um erro (409 Conflict).
+4. **Dado** que estou enviando dados de um filme com campos obrigatórios faltando, **então** a resposta deve retornar um erro 400 (Bad Request).
+5. **Dado** que criei um filme, **quando** eu buscar os detalhes desse filme usando seu ID, **então** a resposta deve conter os dados do filme.
+
+### **User Story 2: Reserva de Filmes**
+1. **Dado** que estou autenticado e o filme está disponível, **quando** eu enviar uma requisição POST para criar uma reserva, **então** a resposta deve retornar um status 200 (OK) com os dados da reserva.
+2. **Dado** que estou tentando reservar um filme com capacidade máxima já atingida, **então** a resposta deve retornar um erro 400 (Bad Request).
+3. **Dado** que estou enviando uma requisição de reserva com dados faltando ou inválidos (ex: data de exibição inválida), **então** a resposta deve retornar um erro 400 (Bad Request).
+4. **Dado** que uma reserva foi criada, **quando** eu consultar a reserva, **então** a resposta deve retornar os detalhes corretos da reserva.
+5. **Dado** que uma reserva foi criada, **quando** eu tentar cancelá-la, **então** a resposta deve retornar um status 200 (OK) e remover a reserva.
 
 ---
 
@@ -123,14 +208,6 @@ Antes de executar o projeto, certifique-se de ter instalado:
 
 ---
 
-## **🗺️ Mapa Mental**
-
-Abaixo está uma visão geral das User Stories e cenários cobertos no projeto.  
-
-![Mapa Mental](IMAGES/nestjs-cinema.png)  
-
----
-
 ## **🐞 Issues Encontradas**
 
 Durante a execução, as seguintes issues foram registradas:  
@@ -159,3 +236,5 @@ _"Como posso otimizar meus testes de API para garantir maior cobertura funcional
 Contribuições são bem-vindas! Abra uma issue ou envie um pull request para discussões e melhorias.
 
 --- 
+
+
