@@ -50,24 +50,19 @@ O objetivo principal deste projeto é automatizar os testes funcionais da API de
 O projeto segue uma estrutura organizada para garantir escalabilidade e facilidade de manutenção:  
 
 ```
-📂 cinema-api-tests
+📂 nestjs-cinema
 ├── 📂 tests
 │   ├── 📄 criarFilme.spec.js
 │   ├── 📄 atualizarFilme.spec.js
 │   ├── 📄 deletarFilme.spec.js
+│   ├── 📄 resevarIngresso.spec.js
 │   └── 📄 detalhesFilmeId.spec.js
-├── 📂 utils
-│   ├── 📄 requestHandler.js
-│   └── 📄 dataGenerator.js
-├── 📂 configs
-│   └── 📄 playwright.config.js
+├── 📂 userStories
+│   ├── 📄 Gerenciamento de Filmes na API.md
+│   └── 📄 Reservando Ingressos na API.md
+├── 📄 playwright.config.js
 └── 📄 README.md
 ```
-
-**Principais padrões adotados:**  
-- **PageObjects:** Gerenciamento modular de ações em endpoints.  
-- **ServiceObjects:** Manipulação direta de requisições HTTP.  
-- **AppActions:** Centralização de ações comuns entre testes.  
 
 ---
 
